@@ -6,9 +6,7 @@
   "private": false,
   "license": "MIT",
   "scripts": {
-    "next": "next dev client",
     "build": "nest build && next build client",
-    "dev": "rimraf dist && yarn tsc && node dist/server.js",
     "format": "prettier --write \"server/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
