@@ -3,6 +3,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import * as express from 'express';
 import { IncomingMessage, ServerResponse } from 'http';
 import next from 'next';
+import { config } from 'dotenv';
 import { AppModule } from './server/app.module';
 const nextApp = next({
   dev: process.env.NODE_ENV !== 'production',
@@ -11,6 +12,7 @@ const nextApp = next({
 const handle = nextApp.getRequestHandler();
 
 async function bootstrap() {
+  config();
   const port = Number(process.env.PORT) || 3000;
   //prepare next
   await nextApp.prepare();
@@ -29,9 +31,11 @@ async function bootstrap() {
       }
     },
   );
-  await app.listen(3000, () => {
-    console.log(`\x1B[96m[Next on Nest] Listening on port ${port}\x1B[39m`);
-  });
+  await app
+    .listen(3000, () => {
+      console.log(`\x1B[96m[Next on Nest] Listening on port ${port}\x1B[39m`);
+    })
+    .catch((e) => console.error('server launch failed', e));
 }
 
 bootstrap();
