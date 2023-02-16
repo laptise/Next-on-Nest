@@ -32,7 +32,7 @@ async function bootstrap() {
     },
   );
   await app
-    .listen(3000, () => {
+    .listen(port, () => {
       console.log(`\x1B[96m[Next on Nest] Listening on port ${port}\x1B[39m`);
     })
     .catch((e) => console.error('server launch failed', e));
