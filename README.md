@@ -8,6 +8,8 @@ No needs Docker, this runs in single process.
 
 All command are available.
 
+Use this for freely, Then if you like this, just give me a star!
+
 Next.js package is located in `client` directory.
 
 Nest.js package is located in `server` directory.
