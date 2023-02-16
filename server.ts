@@ -9,9 +9,9 @@ const nextApp = next({
   dir: './client',
 });
 const handle = nextApp.getRequestHandler();
-console.log(process.env.NODE_ENV);
 
 async function bootstrap() {
+  const port = Number(process.env.PORT) || 3000;
   //prepare next
   await nextApp.prepare();
   //prepare nest
@@ -29,8 +29,9 @@ async function bootstrap() {
       }
     },
   );
-  console.log(`[Next on Nest] Listening on port :${3000}`);
-  await app.listen(3000);
+  await app.listen(3000, () => {
+    console.log(`\x1B[96m[Next on Nest] Listening on port ${port}\x1B[39m`);
+  });
 }
 
 bootstrap();
