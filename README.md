@@ -24,6 +24,8 @@ general behaviours
 
 - `/api` is Routed to Nest.js
 
+- also `/public` is served to static files for next.js
+
 So if you call `/api`, then it calls `AppController.getHello`
 And if you call `/`, then the `client/pages/index.tsx` will be displayed
 
