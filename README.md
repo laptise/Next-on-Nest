@@ -4,6 +4,8 @@ Next.js on Nest.js
 
 This provides Next.js on Nest.js in single repository.
 
+No needs Docker, this runs in single process.
+
 All command are available.
 
 Next.js package is located in `client` directory.
@@ -14,9 +16,17 @@ Tests are located in `test` directory.
 
 ## Behaviour
 
+general behaviours
+
+### Route
+
 - `/*` all routes are routed to Next.js
 
 - `/api` is Routed to Nest.js
 
 So if you call `/api`, then it calls `AppController.getHello`
 And if you call `/`, then the `client/pages/index.tsx` will be displayed
+
+### Port
+
+If you set on PORT in env, then it will runs on specified PORT
